@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Page {
 	
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	public Page(WebDriver driver)
 	{

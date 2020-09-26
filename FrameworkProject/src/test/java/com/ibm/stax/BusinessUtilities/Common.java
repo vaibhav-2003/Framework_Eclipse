@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -18,14 +22,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Common extends Page{
 	
+	private static final String TakesScreenshot = null;
 	public static WebDriver driver;
-	public String screenshot_path;
+	
 	
 	public Common(WebDriver Driver)
 	{
 		super(driver);
 	}
-	
+	//windowhandle,alert,frames
 	public void maximize_browser()
 	{
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -66,9 +71,24 @@ public class Common extends Page{
 	
 	
 	
-	public void screenshot (String name,String class_name) throws IOException
+	public void screenshot (WebDriver driver) throws IOException
 	{
-		
+		TakesScreenshot ts=(TakesScreenshot)driver;
+	    File src = ts.getScreenshotAs(OutputType.FILE);
+	    
+	    try
+	    {
+	    	FileUtils.copyFile(src, new File("C:/Users/VAIBHAV/git/Framework_Eclipse/FrameworkProject/Screenshots/"+getCurrentDateTime()+".png"));
+	    	System.out.println(this.getClass().getSimpleName() +"Screenshot Captured");
+	    	
+	    }
+	    
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    	System.out.println(this.getClass().getSimpleName() +"Unable to Capture Screenshot");
+	    	
+	    }
 	}
 	
 	public void logger(String log) throws FileNotFoundException
@@ -130,7 +150,13 @@ public class Common extends Page{
 		
 	}
 	
-	
+	public String getCurrentDateTime()
+	{
+		DateFormat customformat=new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
+		Date currentDate=new Date();
+		
+		return customformat.format(currentDate);
+	}
 
 
 }
