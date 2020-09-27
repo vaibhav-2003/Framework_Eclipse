@@ -5,6 +5,8 @@
     <classes>
       <class name="com.ibm.stax.Tests.Login">
         <methods>
+          <include name="suitesetup"/>
+          <include name="screenshotfail"/>
           <include name="logintoapp"/>
           <include name="setup"/>
           <include name="Teardown"/>

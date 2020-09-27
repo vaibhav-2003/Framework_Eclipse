@@ -31,15 +31,15 @@ public class Common extends Page{
 		super(driver);
 	}
 	//windowhandle,alert,frames
-	public void maximize_browser()
+	public static void maximize_browser()
 	{
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		System.out.println(this.getClass().getSimpleName()+" : maximize_browser :- Browser Maximized");
+		System.out.println(/*this.getClass().getSimpleName()+*/" : maximize_browser :- Browser Maximized");
 	}
 
 	
-	public void explicit_wait(String xpath) throws Exception
+	public static void explicit_wait(String xpath) throws Exception
 	{
 		try
 		{
@@ -47,14 +47,14 @@ public class Common extends Page{
 		}
 		catch(Exception e)
 		{
-			System.out.println(this.getClass().getSimpleName()+" : explicit_wait :-"
+			System.out.println(/*this.getClass().getSimpleName()+*/" : explicit_wait :-"
 					+ " Explicit wait Failed for Element -"+xpath +"\n "+ e.toString());
 			e.printStackTrace();
 			//screenshot("Failed");
 		}
 	}
 	
-	public void explicit_wait_InvisibilityOfElement(String xpath) throws Exception
+	public static void explicit_wait_InvisibilityOfElement(String xpath) throws Exception
 	{
 		try
 		{
@@ -62,7 +62,7 @@ public class Common extends Page{
 		}
 		catch(Exception e)
 		{
-			System.out.println(this.getClass().getSimpleName()+" : explicit_wait :-"
+			System.out.println(/*this.getClass().getSimpleName()+*/" : explicit_wait :-"
 					+ " Explicit wait Failed for Element -"+xpath +"\n "+ e.toString());
 			e.printStackTrace();
 			//screenshot("Failed");
@@ -71,27 +71,30 @@ public class Common extends Page{
 	
 	
 	
-	public void screenshot (WebDriver driver) throws IOException
+	public static String screenshot (WebDriver driver) throws IOException
 	{
 		TakesScreenshot ts=(TakesScreenshot)driver;
 	    File src = ts.getScreenshotAs(OutputType.FILE);
+	    String Screenshotpath=System.getProperty("user.dir")+"/Screenshots/Login"+getCurrentDateTime()+".png";
 	    
 	    try
 	    {
-	    	FileUtils.copyFile(src, new File("C:/Users/VAIBHAV/git/Framework_Eclipse/FrameworkProject/Screenshots/"+getCurrentDateTime()+".png"));
-	    	System.out.println(this.getClass().getSimpleName() +"Screenshot Captured");
-	    	
+	    	FileUtils.copyFile(src, new File(Screenshotpath));
+	    	System.out.println(/*this.getClass().getSimpleName() +*/"Screenshot Captured");
+	    
 	    }
 	    
 	    catch(Exception e)
 	    {
 	    	e.printStackTrace();
-	    	System.out.println(this.getClass().getSimpleName() +"Unable to Capture Screenshot");
+	    	System.out.println(/*this.getClass().getSimpleName() +*/"Unable to Capture Screenshot");
 	    	
 	    }
+	    
+		return Screenshotpath;
 	}
 	
-	public void logger(String log) throws FileNotFoundException
+	public static void logger(String log) throws FileNotFoundException
 	{
 		
 		String timestamp = new SimpleDateFormat("dd-MM-yy").format(new Date())+"_"+ new SimpleDateFormat("HH-mm-ss").format(new Date());
@@ -101,43 +104,43 @@ public class Common extends Page{
 		System.setOut(out);
 	}
 	
-	public void loggermain(String log) throws FileNotFoundException
+	public static void loggermain(String log) throws FileNotFoundException
 	{
 		
 	}
 	
-	public void scrolldown()
+	public static void scrolldown()
 	{
 		
 		JavascriptExecutor u = (JavascriptExecutor)driver;
 		u.executeScript("window.scrollBy(0,400)");
 	}
 	
-	public void scrollup()
+	public static void scrollup()
 	{
 		
 		JavascriptExecutor u = (JavascriptExecutor)driver;
 		u.executeScript("window.scrollBy(0,-200)");
 	}
 	
-	public void scroll_to_top()
+	public static void scroll_to_top()
 	{
 		((JavascriptExecutor)driver).executeScript("window.scrollTo(0,0)");
 	}
 	
-	public void scroll_till_element(String x)
+	public static void scroll_till_element(String x)
 	{
 		WebElement element = driver.findElement(By.xpath(x));
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",element);
 	}
 	
-	public void scroll_to_bottom() throws Exception
+	public static void scroll_to_bottom() throws Exception
 	{
 		((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		Thread.sleep(3000);
 	}
 	
-	public void scroll_horizontally_in_grid(String xpth,int pixel)
+	public static void scroll_horizontally_in_grid(String xpth,int pixel)
 	{
 		Actions d=new Actions(driver);
 		WebElement draggablepart=driver.findElement(By.xpath(xpth));
@@ -145,12 +148,12 @@ public class Common extends Page{
 	}
 	
 	
-	public void logout() throws Exception
+	public static void logout() throws Exception
 	{
 		
 	}
 	
-	public String getCurrentDateTime()
+	public static String getCurrentDateTime()
 	{
 		DateFormat customformat=new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
 		Date currentDate=new Date();

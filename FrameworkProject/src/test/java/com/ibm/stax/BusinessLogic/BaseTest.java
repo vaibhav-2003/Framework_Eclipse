@@ -1,5 +1,6 @@
 package com.ibm.stax.BusinessLogic;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -8,15 +9,31 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.ibm.stax.BusinessUtilities.Common;
 import com.ibm.stax.BusinessUtilities.Page;
 
 public class BaseTest {
 	
-	public Common cm;
+	
 	public Page p;
 	public WebDriver driver;
+	public ExtentReports report;
+	public ExtentTest logger;
+	
+	@BeforeSuite
+	public void suitesetup()
+	{
+		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/Login"+Common.getCurrentDateTime()+".html"));
+		report=new ExtentReports();
+		report.attachReporter(extent);
+		
+	}
 
 	@BeforeClass
 	public void setup() throws IOException, Exception
@@ -43,8 +60,23 @@ public class BaseTest {
 	{
 		if(ITestResult.FAILURE==Result.getStatus())
 		{
-			cm.screenshot(driver);
+			Common.screenshot(driver);
+			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Common.screenshot(driver)).build());
 		}
+		else if(ITestResult.SUCCESS==Result.getStatus())
+		{
+			Common.screenshot(driver);
+			logger.pass("Test Passed",MediaEntityBuilder.createScreenCaptureFromPath(Common.screenshot(driver)).build());
+		}
+		
+		else if(ITestResult.SKIP==Result.getStatus())
+		{
+			Common.screenshot(driver);
+			logger.skip("Test Skipped",MediaEntityBuilder.createScreenCaptureFromPath(Common.screenshot(driver)).build());
+		}
+		
+		report.flush();
+		
 	}
 
 }

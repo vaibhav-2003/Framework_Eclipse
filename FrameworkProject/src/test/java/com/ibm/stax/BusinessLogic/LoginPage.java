@@ -1,6 +1,8 @@
 package com.ibm.stax.BusinessLogic;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import com.ibm.stax.BusinessUtilities.Common;
 
@@ -10,6 +12,15 @@ public class LoginPage extends Common {
 	{
 		super(driver);
 	}
+	
+	@FindBy(xpath="")
+	public WebElement id;
+	
+	@FindBy(xpath="")
+	public WebElement pswd;
+	
+	@FindBy(xpath="")
+	public WebElement btn;
 	
 	public void signin() throws Exception
 	{
@@ -24,5 +35,20 @@ public class LoginPage extends Common {
 			System.out.println(this.getClass().getSimpleName() +":Login is failed :- Failed");
 		}
 	}
+	
+	private void username()
+	{
+		id.sendKeys("");
+	}
+	
+	private void password()
+	{
+		pswd.sendKeys("");
+	}
 
+	
+	private void loginbutton()
+	{
+		btn.sendKeys("");
+	}
 }

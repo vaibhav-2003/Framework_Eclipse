@@ -11,7 +11,10 @@ public class Login extends BaseTest {
 	@Test
 	public void logintoapp() throws Exception
 	{
+		logger=report.createTest("Login to application");
+		logger.info("Start Application");
 	    p.getInstance(LoginPage.class).signin();
+	    logger.pass("Login is succesfull");
 	}
 		
 }
