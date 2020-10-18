@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="14512" started-at="2020-09-27T11:20:05Z" finished-at="2020-09-27T11:20:20Z">
+  <suite name="Suite" duration-ms="30231" started-at="2020-10-18T12:59:31Z" finished-at="2020-10-18T13:00:01Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="14512" started-at="2020-09-27T11:20:05Z" finished-at="2020-09-27T11:20:20Z">
+    <test name="Test" duration-ms="30231" started-at="2020-10-18T12:59:31Z" finished-at="2020-10-18T13:00:01Z">
       <class name="com.ibm.stax.Tests.Login">
-        <test-method status="PASS" signature="suitesetup()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="suitesetup" is-config="true" duration-ms="484" started-at="2020-09-27T16:50:05Z" finished-at="2020-09-27T16:50:05Z">
+        <test-method status="PASS" signature="suitesetup()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="suitesetup" is-config="true" duration-ms="615" started-at="2020-10-18T18:29:30Z" finished-at="2020-10-18T18:29:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- suitesetup -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="setup" is-config="true" duration-ms="10456" started-at="2020-09-27T16:50:05Z" finished-at="2020-09-27T16:50:16Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="setup" is-config="true" duration-ms="24149" started-at="2020-10-18T18:29:31Z" finished-at="2020-10-18T18:29:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="logintoapp" duration-ms="142" started-at="2020-09-27T16:50:16Z" finished-at="2020-09-27T16:50:16Z">
+        <test-method status="PASS" signature="logintoapp()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="logintoapp" duration-ms="132" started-at="2020-10-18T18:29:55Z" finished-at="2020-10-18T18:29:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintoapp -->
-        <test-method status="PASS" signature="screenshotfail(org.testng.ITestResult)[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="screenshotfail" is-config="true" duration-ms="2712" started-at="2020-09-27T16:50:16Z" finished-at="2020-09-27T16:50:18Z">
+        <test-method status="PASS" signature="screenshotfail(org.testng.ITestResult)[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="screenshotfail" is-config="true" duration-ms="1394" started-at="2020-10-18T18:29:55Z" finished-at="2020-10-18T18:29:56Z">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- screenshotfail -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="Teardown" is-config="true" duration-ms="1143" started-at="2020-09-27T16:50:18Z" finished-at="2020-09-27T16:50:20Z">
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com.ibm.stax.Tests.Login@224edc67]" name="Teardown" is-config="true" duration-ms="4489" started-at="2020-10-18T18:29:56Z" finished-at="2020-10-18T18:30:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Teardown -->
