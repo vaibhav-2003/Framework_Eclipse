@@ -1,4 +1,4 @@
-package com.ibm.stax.BusinessLogic;
+package com.ibm.stax.Tests;
 
 import java.io.File;
 

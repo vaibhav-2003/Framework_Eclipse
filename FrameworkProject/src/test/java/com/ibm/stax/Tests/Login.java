@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.Test;
 
-import com.ibm.stax.BusinessLogic.BaseTest;
+
 import com.ibm.stax.BusinessLogic.LoginPage;
 
 public class Login extends BaseTest {
